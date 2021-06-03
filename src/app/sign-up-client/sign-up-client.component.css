@@ -1,0 +1,13 @@
+.forms{
+    z-index: 4;
+    height: auto;
+    left: 15%;
+    width:800px;
+    }
+    .change{
+        width:150px;
+        left:50%;
+    }
+    .change:disabled{
+        color: rgb(185, 179, 179);
+    }

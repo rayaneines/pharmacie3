@@ -1,0 +1,42 @@
+<html>
+    <head>
+<link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+       <div class='forms'>
+        <h2> Bien venu cher Client</h2>
+    
+        <form #f='ngForm' (ngSubmit)='signUp(f)'>
+            <table class='table1' >
+            
+                 <tr> <td class='indice' > Nom du client:</td><td> <input  ngModel #name='ngModel' type='text' style='width:300px;'name='nom' class='inputtext' placeholder=' nom du client ...' required>	</td></tr>
+                <div class='alert alert-danger' *ngIf='name.invalid && name.touched'>le nom est obligatoir</div>
+                 <tr> <td class='indice' >Numéro tele : </td><td> <input ngModel type='text' style='width:300px;'name='mobile' class='inputtext' pattern='(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}' title='format du telephone est 0xxxxxxxxx ou bien 0x.xx.xx.xx.xx'placeholder='numero mobile ...' ></td></tr>
+            
+                <tr> <td class='indice' >adress : </td><td> <input ngModel  #adress='ngModel'type='text' style='width:300px;'name='adress' class='inputtext' placeholder=' Adress ...' required></td></tr>
+                <div class='alert alert-danger' *ngIf='adress.errors?.required &&adress.touched'>l'adress est obligatoir</div>
+                
+                <tr> <td class='indice' >Email de la pharmacie cherché</td><td> <input ngModel #email0='ngModel'type='email' class='inputtext' placeholder=' Email du pharmacie...'pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' title='forme du email xxxx@xxxx'style='width:300px;'name='email' placeholder='email ...'></td></tr>
+                <div class='alert alert-danger' *ngIf='email0.errors?.email && email0.touched '>l'email n'est pas valid</div>
+                <div class='alert alert-danger' *ngIf='email0.errors?.required && email0.touched'>l'email du parmacie est obligatoir</div>
+
+                <tr> <td class='indice' >Email du client</td><td> <input ngModel #email='ngModel' type='email' class='inputtext' placeholder=' Email du pharmacie...'pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' title='forme du email xxxx@xxxx'style='width:300px;'name='email' placeholder='email ...' required email></td></tr>
+                <div class='alert alert-danger' *ngIf='email.errors?.email && email.touched '>l'email n'est pas valid</div>
+                <div class='alert alert-danger' *ngIf='email.errors?.required && email.touched'>l'email est obligatoir</div>
+
+                <tr> <td class='indice' >mot de pass : </td><td> <input ngModel  #password='ngModel'  type='password' style='width:300px;'name='mot de pass' class='inputtext' placeholder=' mot de pass ...'minlength='6'></td></tr>
+                <div class='alert alert-danger' *ngIf='password.errors?.minlength && password.touched '>l'password 6+ caractères</div>
+                <div class='alert alert-danger' *ngIf='password.errors?.required && password.touched'>l'password est obligatoir</div>
+                
+                <tr> <td class='indice' >confirmer mot de pass : </td><td> <input ngModel #confirmpassword='ngModel'  type='password' style='width:300px;'name='mot de pass' class='inputtext' placeholder='confirmation de mot de pass ...' required></td></tr>
+                <div class='alert alert-danger' *ngIf='confirmpassword.errors?.required && confirmpassword.touched ' >la confirmation est obligatoire</div>
+                <div class='alert alert-danger' *ngIf='confirmpassword.value!== password.value && confirmpassword.touched '>la confirmation et doit être égale  à mot de pass</div>
+            <tr>
+            <td>
+                <button [disabled]='f.invalid ||confirmpassword.value !== password.value' class='change' name='enregistrer'  (click)='signUp(f)'>Enregistrer</button></td>
+                <td><a href="../index.html" class='change'>Annuler&nbsp;</a></td></tr>
+        
+            </table></form>
+        </div> 
+    </body>
+</html>

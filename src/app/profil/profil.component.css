@@ -1,0 +1,40 @@
+#liste{
+	z-index:2;
+	left:5%;
+	position: fixed;
+	width:100%;
+	height:8%;
+}
+#liste ul {position: absolute;
+ padding:0;
+ margin-top:8px;
+ list-style-type:none;
+ }
+#liste li {
+ margin-left:20px;
+ float:left;/*pour IE*/
+
+ }
+#liste ul li a {
+ display:block;
+ float:left;   
+ width:105%;
+ height:30px;
+ color:white;
+ background-image: linear-gradient(to bottom right, blue, white);
+ text-decoration:none;
+ text-align:center;
+ padding:5px;
+font-size: 14pt;
+font-family: times new roman;
+ border-radius: 50px;
+ /*pour avoir un effet "outset" avec IE :*/
+ border-color:#f0f0f0 #c0c0c0 #c0c0c0 #f0f0f0;
+box-shadow: 2px 2px 1px 1px blue;
+ }
+#liste ul li a:hover {
+	background-image: linear-gradient(to bottom right, white, gray);
+ background-color:#D3D3D3;
+ box-shadow:2px 2px 2px 2px white;
+ color: black;
+ }
